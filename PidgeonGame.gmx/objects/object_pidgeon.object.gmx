@@ -417,6 +417,12 @@ if(charge &lt; -1) {
     has_won = true;
     alarm[3] = 15;
     instance_create(512, 148, obj_win);
+    
+    with(object_npc) {
+        instance_destroy();
+    }
+    
+    sprite_index = sprite_base;
 }
 
 /// Press R to restart
