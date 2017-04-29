@@ -63,8 +63,8 @@ evil = 0;
 enemies_left = 10;
 
 global.level = 0;
+global.has_won = false;
 global.gameover = false;
-has_won = false;
 sprite_base = sprite_index;
 
 anim_end = false;
@@ -332,7 +332,7 @@ if(charge &gt; 4) {
           <argument>
             <kind>1</kind>
             <string>/// Update level and sprite
-if(has_won) exit;
+if(global.has_won) exit;
 
 can_jump = true;
 
@@ -489,6 +489,31 @@ if(place_meeting(px, py, object_npc_car) and pz &lt; 30){
     hit = true;
 }else{
     hit=false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="object_lamp">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.level == 3) {
+    instance_destroy();
 }
 </string>
           </argument>
@@ -741,7 +766,7 @@ if(draw_flash) {
     draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
 }
 
-if(!has_won) {
+if(!global.has_won) {
     draw_set_colour(make_colour_rgb(150, 0, 0));
     draw_rectangle(ux, uy, ux + (width * (charge + 1) / 4), uy + height, false);
     draw_set_colour(make_colour_rgb(0, 0, 0));

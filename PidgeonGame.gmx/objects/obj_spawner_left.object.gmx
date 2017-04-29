@@ -81,7 +81,7 @@ time = random(maxTime - minTime);
 time -= delta_time / 1000000;
 
 //if triggered
-if(time &lt; 0){
+if(time &lt; 0 &amp;&amp; !global.has_won){
     if(random(4) &lt; global.level || global.level == 3){
         with(instance_create(x, y, object_npc_enemy)){
             vx = other.vx;

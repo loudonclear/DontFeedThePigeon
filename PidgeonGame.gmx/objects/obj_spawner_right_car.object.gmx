@@ -81,7 +81,7 @@ vy = 0;
 time -= delta_time / 1000000;
 
 //if triggered
-if(time &lt; 0 &amp;&amp; global.level != 3){
+if(time &lt; 0 &amp;&amp; global.level != 3 &amp;&amp; !global.has_won){
     with(instance_create(x, y, object_npc_car)){
         image_xscale = -1;
         vx = other.vx;
